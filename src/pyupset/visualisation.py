@@ -64,6 +64,7 @@ def plot(data_dict, *, unique_keys=None, sort_by='size', inters_size_bounds=(0, 
     fig_dict = upset.main_plot(ordered_dfs, ordered_df_names, ordered_in_sets, ordered_out_sets,
                                ordered_inters_sizes)
     fig_dict['additional'] = []
+    fig_dict['intersection_sets'] = [plot_data.inters_df_dict]
 
 
     # ap = [{kind:'', data:{x:'', y:''}, s:'', ..., kwargs:''}]
@@ -246,7 +247,8 @@ class UpSetPlot():
                 'intersection_bars': self.ax_intbars,
                 'intersection_matrix': self.ax_intmatrix,
                 'base_set_size': self.ax_setsize,
-                'names': self.ax_tablenames}
+                'names': self.ax_tablenames,
+                }
 
     def _table_names_plot(self, sorted_set_names, ylim):
         ax = self.ax_tablenames
@@ -571,7 +573,6 @@ class DataExtractor:
             final_df = self.df_dict[seed].set_index(pd.Index(self.df_dict[seed][self.unique_keys])).ix[
                 exclusive_intersection].reset_index(drop=True)
             inters_dict[in_sets] = final_df
-
         return in_sets_list, inters_degrees, out_sets_list, inters_dict
 
     def get_filtered_intersections(self, sort_by, inters_size_bounds, inters_degree_bounds):
@@ -648,6 +649,7 @@ if __name__ == '__main__':
                            'data_quantities': {'x': 'views'},
                            'graph_properties': {'bins': 10, 'alpha': .6}}
                            ]
+
          )
 
 # TODO: if possible, remove horrible hack that uses Index instead of pd.merge
