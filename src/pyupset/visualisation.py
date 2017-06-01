@@ -247,8 +247,7 @@ class UpSetPlot():
                 'intersection_bars': self.ax_intbars,
                 'intersection_matrix': self.ax_intmatrix,
                 'base_set_size': self.ax_setsize,
-                'names': self.ax_tablenames,
-                }
+                'names': self.ax_tablenames}
 
     def _table_names_plot(self, sorted_set_names, ylim):
         ax = self.ax_tablenames
@@ -649,7 +648,6 @@ if __name__ == '__main__':
                            'data_quantities': {'x': 'views'},
                            'graph_properties': {'bins': 10, 'alpha': .6}}
                            ]
-
          )
 
 # TODO: if possible, remove horrible hack that uses Index instead of pd.merge
