@@ -64,7 +64,7 @@ def plot(data_dict, *, unique_keys=None, sort_by='size', inters_size_bounds=(0, 
     fig_dict = upset.main_plot(ordered_dfs, ordered_df_names, ordered_in_sets, ordered_out_sets,
                                ordered_inters_sizes)
     fig_dict['additional'] = []
-    fig_dict['intersection_sets'] = [plot_data.inters_df_dict]
+    fig_dict['intersection_sets'] = plot_data.inters_df_dict
 
 
     # ap = [{kind:'', data:{x:'', y:''}, s:'', ..., kwargs:''}]
